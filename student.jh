@@ -1,0 +1,31 @@
+entity Student {
+    name String,
+    age Integer,
+    birthday Instant
+}
+
+entity Media {
+	name String,
+    path String,
+    content ImageBlob
+}
+
+relationship OneToOne {
+  Student{headPic(content)} to Media
+}
+
+relationship OneToMany {
+  Student{pictures(content)} to Media
+}
+
+// Set pagination options
+//paginate * with infinite-scroll
+paginate * with pagination
+
+dto * with mapstruct
+
+filter * 
+
+// Set service options to all except few
+service all with serviceImpl
+
